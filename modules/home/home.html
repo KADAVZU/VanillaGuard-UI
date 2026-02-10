@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secure Home</title>
+    <link rel="stylesheet" href="../../core/ghosting.css">
+    <style>
+        /* Visual block if JS fails */
+        #no-js-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: red; color: white; z-index: 10000;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- This div blocks the entire screen by default -->
+    <div id="no-js-overlay">
+        <h1>SECURITY COMPROMISED!</h1>
+        <p>JavaScript has been disabled. Content access is restricted.</p>
+        <button onclick="location.href='../../index.html'">Return to Start</button>
+    </div>
+
+    <!-- Main protected content -->
+    <div id="app-container">
+        <h1>Secure Home Panel</h1>
+        <p>Content protected against unauthorized theft and commands.</p>
+        <button>Test Button</button>
+    </div>
+
+    <!-- JS removes the security overlay -->
+    <script>document.getElementById('no-js-overlay').style.display = 'none';</script>
+    <script src="../../core/security.js"></script>
+</body>
+</html>

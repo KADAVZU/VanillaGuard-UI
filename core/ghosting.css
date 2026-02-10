@@ -1,0 +1,17 @@
+/* GHOSTING KISS */
+* {
+    user-select: none !important;
+    -webkit-user-drag: none !important;
+}
+
+/* Allow clicks on buttons and links */
+button, a, input {
+    pointer-events: auto !important;
+    cursor: pointer;
+}
+
+/* Prevent image interaction */
+img {
+    pointer-events: none;
+    user-select: none;
+}

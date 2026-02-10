@@ -1,101 +1,116 @@
-Para que en GitHub no se vea plano, lo ideal es usar el formato Markdown (README.md). GitHub interpreta este archivo automáticamente y le aplica diseño (negritas, bloques de código, colores, etc.).
 
-Si lo guardas como README.txt, se verá como un bloc de notas aburrido. Guárdalo como README.md y pega el siguiente código:
+# Vanilla CopyGuard UI: Native Front-end Security Framework
 
-code
-Markdown
-download
-content_copy
-expand_less
-# 🏰 Infraestructura del Proyecto: El Restaurante Digital 🛡️
+Welcome to the official workspace. This project is a framework designed under the **KISS** (*Keep It Simple, Stupid*) philosophy, focusing on high standards of **Front-end Cybersecurity**.
 
-Bienvenido a la estructura oficial de trabajo. Este proyecto es un sistema diseñado bajo la filosofía **KISS** (*Keep It Simple, Stupid*) y altos estándares de **Ciberseguridad Front-end**.
-
-Para entender cómo funciona, imagina que este sistema es un **Restaurante de Alta Cocina** donde el orden, la limpieza y la seguridad son la prioridad máxima.
+This system is built as a robust, native infrastructure where organization, security, and modularity are the primary objectives.
 
 ---
 
-## 📂 Mapa de la Instalación
+## 📂 System Architecture
 
 ```text
-PROYECTO_RAIZ/
+ROOT_DIRECTORY/
 │
-├── 🚪 index.html              # El Anfitrión (Greeter)
+├── 🚪 index.html              # The Gateway (Entry Point)
 │
-├── 🔐 core/                   # LA GERENCIA (Reglas y Seguridad)
-│   ├── security.js            # Guardia de Seguridad
-│   ├── ghosting.css           # Cristal Ahumado
-│   ├── interceptor.js         # El Maître (Comunicación)
-│   └── shield_layers.js       # Refuerzos de Blindaje
+├── 🔐 core/                   # SECURITY ENGINE (Rules & Protocols)
+│   ├── security.js            # Security Guard (Console & CMD Blocking)
+│   ├── ghosting.css           # Content Ghosting (UI Protection)
+│   ├── interceptor.js         # Data Traffic Controller
+│   └── shield_layers.js       # Security Reinforcements
 │
-├── 🥫 assets/                 # LA DESPENSA (Ingredientes Crudos)
-│   ├── img/                   # Imágenes y Arte
-│   └── fonts/                 # Estilo Visual
+├── 📁 assets/                 # STATIC RESOURCES (Raw Assets)
+│   ├── img/                   # Visual Media & Assets
+│   └── fonts/                 # Typography & Brand Styles
 │
-├── 🍴 shared/                 # UTENSILIOS COMUNES (Recursos Globales)
-│   ├── css/                   # Estilos Generales
-│   ├── js/                    # Funciones de Soporte
-│   └── lib/                   # Herramientas Externas
+├── ⚙️ shared/                 # GLOBAL UTILITIES (Shared Resources)
+│   ├── css/                   # Global Styles
+│   ├── js/                    # Utility Functions
+│   └── lib/                   # External Dependencies
 │
-└── 🍳 modules/                # ESTACIONES DE COCINA (Paneles Independientes)
-    ├── home/                  # Estación Principal
+└── 🧩 modules/                # FEATURE MODULES (Independent Components)
+    ├── home/                  # Primary Module
     │   ├── home.html, .css, .js
     │   └── controller.js
-    └── page2/                 # Estación Secundaria
+    └── page2/                 # Secondary Module
         ├── page2.html, .css, .js
         └── controller.js
-📝 Explicación de las Áreas
-🚪 1. El Anfitrión (index.html)
+```
 
-Es la puerta de entrada. Su única misión es recibir al cliente y verificar que todo esté en orden. Si el cliente no tiene JavaScript activo, no se le permite el paso. Una vez validado, lo escolta hacia la página principal.
+---
 
-🔐 2. La Gerencia (core/)
+## 📝 Component Breakdown
 
-Aquí se encuentran las leyes del establecimiento. Es el cerebro del sistema y su función es la Ciberseguridad.
+### 🚪 1. The Gateway (`index.html`)
+This is the single entry point. Its sole mission is to receive the user and verify the environment. If **JavaScript is disabled**, access is denied. Once the environment is validated, it redirects the user to the primary module.
 
-Vigilancia: Bloquea el acceso a la consola de comandos y herramientas de desarrollador.
+### 🔐 2. Security Engine (`core/`)
+This directory contains the system's governance and front-end cybersecurity protocols:
+*   **Surveillance:** Blocks access to the developer console, F12, and CMD-style tools.
+*   **Content Protection:** Prevents text theft, unauthorized copying, and file dragging using ghosting layers.
+*   **Active Protocol:** If a security breach is detected, the Engine triggers a "kill-switch" on the current view and halts all interaction to protect the source code.
 
-Protección: Evita que se roben textos o se arrastren archivos mediante capas invisibles.
+### 📁 3. Static Assets (`assets/`)
+Stores raw assets with no internal logic, such as images, icons, and fonts. These are kept separate so that design updates can be made without interfering with the functional code.
 
-Protocolo: Si alguien intenta romper las reglas, la Gerencia "apaga" la vista y bloquea la interacción.
+### ⚙️ 4. Global Utilities (`shared/`)
+This is the shared inventory of the project. It stores resources that all modules must use consistently.
 
-🥫 3. La Despensa (assets/)
+---
 
-Contiene los ingredientes básicos que no tienen lógica propia: imágenes, iconos y tipografías. Se mantienen separados para que el equipo creativo pueda actualizarlos sin tocar el código.
+## 🛠️ Configuration & Setup
 
-🍴 4. Utensilios Comunes (shared/)
+This project is **Open Source** and free to use. Follow these steps to implement it in your own environment:
 
-Esta carpeta es el inventario compartido. Aquí guardamos lo que todos los paneles necesitan usar por igual.
+### 1. Domain Authorization
+To prevent your project from being downloaded and run locally or on unauthorized mirrors, you must configure the "Allowed Hosts".
+*   Open `core/security.js`.
+*   Locate the `allowedHosts` constant.
+*   Add your production domain (e.g., `['yourdomain.com', 'localhost']`).
 
-Utilidad: Si decides que todos los botones de la web deben cambiar de color, lo haces aquí una sola vez y todas las "estaciones" se actualizan automáticamente. Mantiene la armonía y evita repetir trabajo.
+### 2. Security Mechanisms (What is blocked?)
+The framework actively monitors and intercepts the following actions:
+*   **Keyboard Shortcuts:**
+    *   `F12`: Developer Tools.
+    *   `Ctrl+S / Cmd+S`: Saving the webpage locally.
+    *   `Ctrl+U / Cmd+U`: Viewing the page source code.
+    *   `Ctrl+P / Cmd+P`: Printing (prevents PDF scraping).
+    *   `Ctrl+Shift+I / J / C`: Inspect element and Console shortcuts.
+*   **Mouse Interaction:**
+    *   `Right-Click`: Context menu is disabled.
+    *   `Drag & Drop`: Images and text cannot be dragged out of the browser.
+*   **Environmental Monitoring:**
+    *   **Window Resizing:** Triggers security if the difference between outer and inner window dimensions suggests a side-docked console.
+    *   **Infinite Debugger:** Pauses script execution if the dev-tools are somehow bypassed.
 
-🍳 5. Estaciones de Cocina (modules/)
+### 3. Creating New Modules
+The framework is designed to be infinitely scalable:
+1.  Navigate to `modules/`.
+2.  Clone an existing module folder (e.g., `home`).
+3.  Rename the folder and its internal `.html`, `.css`, and `.js` files.
+4.  Maintain the imports to `../../core/security.js` in the `<head>` of your new HTML file to ensure the shield remains active.
 
-Cada carpeta dentro de módulos es un Proyecto Individual.
+---
 
-Independencia: Lo que sucede en la estación home no afecta a la estación page2. Si una falla, la otra sigue funcionando perfectamente.
+## 🔄 Development Workflow
 
-Escalabilidad: Podemos añadir infinitas estaciones nuevas simplemente clonando la estructura. Cada una tiene su propio "manual de servicio" (controller.js) para interactuar con las demás.
+1.  **Development Phase:** Work with the raw code in your local environment. Keep `security.js` readable to debug your own application.
+2.  **Logic Separation:** Keep module-specific logic in `module_name.js` and cross-module communication in `controller.js`.
+3.  **Production Hardening:**
+    *   Before deploying, it is **highly recommended** to obfuscate `core/security.js` using tools like [javascript-obfuscator.io](https://javascript-obfuscator.io/).
+    *   Set the **Domain Lock** in the obfuscator settings to match your production URL.
+    *   Replace the raw `security.js` with the obfuscated version.
 
-🚀 ¿Por qué esta estructura?
+---
 
-Seguridad de Hierro: La seguridad está centralizada en el core. Nada entra ni sale sin pasar por los protocolos de protección.
+## 🚀 Why This Infrastructure?
 
-Orden Absoluto: "Un lugar para cada cosa y cada cosa en su lugar". No mezclamos lógica de negocio con archivos de diseño.
+*   **Hardened Security:** Security is centralized in the core. Every interaction is filtered through native protection protocols.
+*   **Strict Modularity:** Business logic remains separated from design assets.
+*   **Low Friction:** Framework-agnostic. No npm, no heavy dependencies—just native performance.
+*   **Scalable & Clean:** Grows without creating "spaghetti code."
 
-Fácil de Entender: Cualquier integrante nuevo puede ver el mapa y saber exactamente dónde encontrar un ingrediente o dónde ajustar una regla de seguridad.
-
-"Todo junto, pero no mezclado. Categorizado por bloques para un control total."
-
-code
-Code
-download
-content_copy
-expand_less
-### 💡 Instrucciones para que se vea bien en GitHub:
-1. Crea un archivo nuevo en tu proyecto llamado `README.md`.
-2. Pega todo el código de arriba.
-3. Cuando lo subas (commit/push) a GitHub, verás que los títulos se ven grandes, el mapa de carpetas tiene un fondo oscuro y los emojis resaltan. 
-
-**¿Por qué esto no se ve plano?**
-Porque GitHub usa **Markdown**, un lenguaje que convierte ese texto con símbolos (`#`, `>`, `**`) en un diseño visual profesional. ¡Pruébalo y verás el cambio!
+---
+**"Everything together, but nothing mixed. Categorized by blocks for total control."**
+```
